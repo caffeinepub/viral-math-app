@@ -1,0 +1,20 @@
+{
+  "backend/main.mo": "Empty Motoko actor serving as the backend entry point with no implemented functionality.",
+  "feature_evidence.json": "Feature evidence report confirming high-confidence implementation of the header tagline 'Understand Virality Through Mathematics' beside the logo in App.tsx.",
+  "frontend-file-summaries.txt": "JSON document summarizing each frontend source file's purpose, styling approach, and key features for the Viral Math App.",
+  "frontend/index.css": "Base Tailwind CSS file defining light and dark mode OKLCH CSS custom properties for colors, borders, and UI component tokens.",
+  "frontend/index.html": "Minimal HTML shell for the Viral Math App that mounts the React app into a root div and loads the main TypeScript module.",
+  "frontend/src/App.tsx": "Main app component rendering a glassmorphism header with logo and gradient tagline, split tab navigation for Calculators and Learn sections, and conditional rendering of all five tab views.",
+  "frontend/src/components/DecaySimulator.tsx": "Decay simulator component with inputs for peak views, decay rate, and days that calculates remaining views using exponential decay, styled with neon-purple Gen Z aesthetics.",
+  "frontend/src/components/EngagementCalculator.tsx": "Engagement rate calculator with a 2-column grid of inputs for views, likes, comments, and shares, computing (likes+comments+shares)/views×100 with neon-pink Gen Z styling.",
+  "frontend/src/components/GrowthSimulator.tsx": "Viral growth simulator with inputs for initial viewers, shares per person, and rounds that computes total reach via exponential growth, styled with neon-cyan Gen Z aesthetics.",
+  "frontend/src/components/HowItWorks.tsx": "Renders an educational page explaining three Instagram Reels metrics—Engagement Rate, Viral Growth Simulator, and View Decay Simulator—with formulas, step-by-step breakdowns, benchmarks, and tips for each.",
+  "frontend/src/components/ResultCard.tsx": "A styled display card component that shows a labeled metric value with an emoji, optional unit, and a color-variant-driven gradient/glow visual treatment.",
+  "frontend/src/components/TipsAndTricks.tsx": "Defines and exports a static collection of categorized Instagram Reels growth tips covering timing, hooks, hashtags, audio/trends, and format/production best practices.",
+  "frontend/src/hooks/useActor.ts": "Custom hook that creates and caches an ICP backend actor (authenticated or anonymous) using React Query, and invalidates dependent queries whenever the actor changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides an Internet Identity authentication context and hook, managing AuthClient creation, login/logout flow, identity persistence, and delegation validity checks.",
+  "frontend/src/index.css": "Global stylesheet that defines a Gen Z-themed dark design system with OKLCH color tokens, glassmorphism utilities, gradient text/button helpers, and glow effects using Tailwind layers.",
+  "frontend/src/main.tsx": "Application entry point that mounts the React app wrapped with TanStack QueryClientProvider and InternetIdentityProvider.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration with dark mode, custom fonts (DM Sans, Space Grotesk), oklch-based color tokens (including neon accents), extended border radii, and box-shadow glow utilities. Includes typography, container-queries, and animate plugins.",
+  "project_state.json": "Project state descriptor for a client-side mobile app ('Viral Math App') with three calculator screens (Engagement, Growth, Decay), tabbed navigation, and a Gen Z dark-theme aesthetic. Tracks existing features, architectural notes, and versioning metadata."
+}

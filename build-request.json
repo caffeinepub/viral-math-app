@@ -1,0 +1,42 @@
+{
+  "kind": "build_request",
+  "title": "Add tagline beside logo in app header",
+  "projectName": "Viral Math App",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-14",
+      "text": "In the app header in App.tsx, display the text 'Understand Virality Through Mathematics' directly beside the logo image (frontend/public/assets/generated/logo.png). The tagline should be placed to the right of the logo, styled to match the existing Gen Z dark aesthetic — use a gradient or light-colored font consistent with the current header typography, appropriate font size for mobile readability (e.g., text-sm to text-base), and ensure the logo + tagline are horizontally aligned and centered or left-aligned within the glassmorphism header.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Beside the logo write th line \"Understand Virality Through Mathematic\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "The text 'Understand Virality Through Mathematics' appears in the app header immediately to the right of the logo image.",
+        "The logo and tagline are horizontally aligned (vertically centered relative to each other).",
+        "The tagline text is styled consistently with the existing dark Gen Z aesthetic (gradient or light-colored font).",
+        "The layout remains clean and readable on mobile screen widths without overflow or wrapping issues.",
+        "The logo retains its current size (80–100px height) and styling — no visible white box background."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not alter the logo size or its existing styling.",
+    "Do not modify any files in frontend/src/hooks/ or frontend/src/components/ui.",
+    "Preserve the existing glassmorphism header background and overall layout structure."
+  ],
+  "nonGoals": [
+    "Changing the logo image itself.",
+    "Modifying any calculator or simulator functionality.",
+    "Redesigning the tab navigation or any other sections of the app."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

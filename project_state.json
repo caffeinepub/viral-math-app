@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 11,
+  "summary": "A simple mobile app called Viral Math App that teaches students the mathematics behind viral Instagram reels. Features three calculators: Engagement Calculator, Growth Simulator, and Decay Simulator. Dark theme design with a Gen Z aesthetic — bold visuals, trendy typography, vibrant gradients, and modern social media energy.",
+  "architectural_notes": [
+    "Mobile app (simple single-page or tabbed layout) targeting students; no backend required — all calculations are client-side"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-an-engagement-calculator-screen-where-the-user-enters-views-likes-comments-and-shares-as-numeric-inputs-then-taps-a-calculate-button-the-app-computes-engagement-rate-likes-comments-shares-views-100-and-displays-the-result-formatted-as-a-percentage-e-g-4-75-show-a-friendly-error-message-if-views-is-zero-or-any-field-is-empty",
+      "title": "Create an Engagement Calculator screen where the user enters Views, Likes, Comments, and Shares as numeric inputs, then taps a 'Calculate' button. The app computes Engagement Rate = (Likes + Comments + Shares) / Views × 100 and displays the result formatted as a percentage (e.g., '4.75%'). Show a friendly error message if Views is zero or any field is empty.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-growth-simulator-screen-where-the-user-enters-initial-viewers-shares-per-person-and-rounds-as-numeric-inputs-then-taps-a-simulate-button-the-app-computes-total-reach-initial-shares-rounds-and-displays-the-result-as-a-formatted-whole-number-show-a-friendly-error-message-if-any-field-is-empty-or-invalid",
+      "title": "Create a Growth Simulator screen where the user enters Initial Viewers, Shares Per Person, and Rounds as numeric inputs, then taps a 'Simulate' button. The app computes Total Reach = Initial × (Shares ^ Rounds) and displays the result as a formatted whole number. Show a friendly error message if any field is empty or invalid.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-decay-simulator-screen-where-the-user-enters-peak-views-decay-rate-a-decimal-between-0-and-1-e-g-0-85-and-days-as-numeric-inputs-then-taps-a-simulate-button-the-app-computes-remaining-views-peak-decay-rate-days-and-displays-the-result-as-a-formatted-whole-number-show-a-friendly-error-message-if-any-field-is-empty-or-invalid",
+      "title": "Create a Decay Simulator screen where the user enters Peak Views, Decay Rate (a decimal between 0 and 1, e.g. 0.85), and Days as numeric inputs, then taps a 'Simulate' button. The app computes Remaining Views = Peak × (Decay Rate ^ Days) and displays the result as a formatted whole number. Show a friendly error message if any field is empty or invalid.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-tabbed-or-card-based-navigation-layout-that-lets-users-switch-between-the-three-tools-engagement-calculator-growth-simulator-and-decay-simulator-each-section-should-include-a-brief-one-line-educational-description-explaining-what-the-math-models-e-g-measures-how-much-your-audience-interacts-with-a-reel",
+      "title": "Implement a tabbed or card-based navigation layout that lets users switch between the three tools: Engagement Calculator, Growth Simulator, and Decay Simulator. Each section should include a brief one-line educational description explaining what the math models (e.g., 'Measures how much your audience interacts with a reel.').",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-consistent-dark-theme-visual-design-across-the-entire-app-use-a-dark-background-near-black-high-contrast-text-white-or-light-grey-accent-colors-in-warm-tones-e-g-orange-or-magenta-to-evoke-social-media-energy-large-easy-to-tap-buttons-clearly-readable-result-cards-with-prominent-font-size-and-a-clean-mobile-first-layout-with-generous-spacing-between-elements",
+      "title": "Apply a consistent dark-theme visual design across the entire app. Use a dark background (near-black), high-contrast text (white or light grey), accent colors in warm tones (e.g., orange or magenta to evoke social media energy), large easy-to-tap buttons, clearly readable result cards with prominent font size, and a clean mobile-first layout with generous spacing between elements.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-the-overall-app-visual-identity-to-be-gen-z-native-replace-the-current-color-scheme-with-a-vibrant-neon-pastel-gradient-palette-e-g-electric-purple-hot-pink-neon-green-cyan-use-a-bold-display-font-e-g-space-grotesk-or-similar-for-headings-and-result-values-and-add-subtle-micro-animations-pulse-bounce-or-scale-in-on-button-interactions-and-result-reveals",
+      "title": "Redesign the overall app visual identity to be Gen Z-native: replace the current color scheme with a vibrant neon/pastel gradient palette (e.g., electric purple, hot pink, neon green, cyan), use a bold display font (e.g., Space Grotesk or similar) for headings and result values, and add subtle micro-animations (pulse, bounce, or scale-in) on button interactions and result reveals.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-tab-navigation-bar-to-use-a-pill-style-or-floating-bottom-bar-design-with-gradient-filled-active-state-indicators-and-emoji-icons-next-to-each-tab-label-e-g-engagement-growth-decay-to-give-it-a-social-media-app-feel",
+      "title": "Update the tab navigation bar to use a pill-style or floating bottom-bar design with gradient-filled active state indicators and emoji icons next to each tab label (e.g., 📊 Engagement, 🚀 Growth, 📉 Decay) to give it a social-media-app feel.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-all-input-fields-and-the-calculate-simulate-buttons-with-a-gen-z-aesthetic-inputs-should-have-glowing-neon-borders-on-focus-and-action-buttons-should-use-bold-gradient-fills-e-g-pink-to-purple-or-cyan-to-green-with-rounded-pill-shapes-and-all-caps-or-bold-label-text",
+      "title": "Redesign all input fields and the Calculate/Simulate buttons with a Gen Z aesthetic: inputs should have glowing neon borders on focus, and action buttons should use bold gradient fills (e.g., pink-to-purple or cyan-to-green) with rounded pill shapes and all-caps or bold label text.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-revamp-the-hero-section-and-app-header-with-a-bold-gradient-headline-a-short-punchy-tagline-using-gen-z-slang-e-g-do-the-math-go-viral-no-cap-and-a-dynamic-gradient-or-glassmorphism-background-effect-to-make-the-app-feel-like-a-modern-social-media-tool",
+      "title": "Revamp the hero section and app header with a bold gradient headline, a short punchy tagline using Gen Z slang (e.g., 'Do the math. Go viral. No cap.'), and a dynamic gradient or glassmorphism background effect to make the app feel like a modern social media tool.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-resultcard-component-with-a-glassmorphism-card-style-frosted-glass-background-with-a-subtle-neon-border-glow-display-the-result-value-in-a-large-bold-gradient-colored-font-and-show-a-fun-contextual-emoji-alongside-the-result-label-e-g-for-high-engagement-for-growth",
+      "title": "Update the ResultCard component with a glassmorphism card style (frosted glass background with a subtle neon border glow), display the result value in a large, bold, gradient-colored font, and show a fun contextual emoji alongside the result label (e.g., 🔥 for high engagement, 📈 for growth).",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-save-the-uploaded-logo-image-image-png-as-a-static-asset-at-frontend-public-assets-generated-logo-png-and-display-it-in-the-app-header-hero-section-in-app-tsx-replacing-or-complementing-the-current-text-based-branding-the-logo-should-be-sized-appropriately-for-mobile-e-g-height-56-72px-centered-or-left-aligned-in-the-header-and-styled-to-blend-with-the-existing-glassmorphism-dark-background-without-a-visible-white-background-box",
+      "title": "Save the uploaded logo image (image.png) as a static asset at frontend/public/assets/generated/logo.png and display it in the app header/hero section in App.tsx, replacing or complementing the current text-based branding. The logo should be sized appropriately for mobile (e.g., height 56–72px), centered or left-aligned in the header, and styled to blend with the existing glassmorphism dark background without a visible white background box.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-increase-the-logo-image-size-in-the-app-header-in-app-tsx-the-logo-displayed-from-frontend-public-assets-generated-logo-png-should-be-enlarged-to-a-height-of-approximately-80-100px-up-from-the-current-56-72px-range-while-remaining-centered-or-left-aligned-and-blending-with-the-glassmorphism-header-background-without-a-visible-white-box",
+      "title": "Increase the logo image size in the app header in App.tsx. The logo (displayed from frontend/public/assets/generated/logo.png) should be enlarged to a height of approximately 80–100px (up from the current 56–72px range), while remaining centered or left-aligned and blending with the glassmorphism header background without a visible white box.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-two-new-informational-pages-screens-to-the-app-accessible-via-the-existing-tab-navigation-system-or-a-new-navigation-entry-1-a-how-it-works-page-that-explains-the-math-formulas-behind-each-tool-engagement-rate-viral-growth-decay-with-simple-visual-breakdowns-and-gen-z-friendly-copy-and-2-a-tips-tricks-page-with-short-actionable-advice-on-growing-instagram-reels-e-g-best-posting-times-content-hooks-hashtag-strategies-styled-consistently-with-the-existing-dark-gen-z-aesthetic",
+      "title": "Add two new informational pages/screens to the app accessible via the existing tab/navigation system or a new navigation entry: (1) a 'How It Works' page that explains the math formulas behind each tool (Engagement Rate, Viral Growth, Decay) with simple visual breakdowns and Gen Z-friendly copy, and (2) a 'Tips & Tricks' page with short actionable advice on growing Instagram Reels (e.g., best posting times, content hooks, hashtag strategies), styled consistently with the existing dark Gen Z aesthetic.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-app-header-in-app-tsx-display-the-text-understand-virality-through-mathematics-directly-beside-the-logo-image-frontend-public-assets-generated-logo-png-the-tagline-should-be-placed-to-the-right-of-the-logo-styled-to-match-the-existing-gen-z-dark-aesthetic-use-a-gradient-or-light-colored-font-consistent-with-the-current-header-typography-appropriate-font-size-for-mobile-readability-e-g-text-sm-to-text-base-and-ensure-the-logo-tagline-are-horizontally-aligned-and-centered-or-left-aligned-within-the-glassmorphism-header",
+      "title": "In the app header in App.tsx, display the text 'Understand Virality Through Mathematics' directly beside the logo image (frontend/public/assets/generated/logo.png). The tagline should be placed to the right of the logo, styled to match the existing Gen Z dark aesthetic — use a gradient or light-colored font consistent with the current header typography, appropriate font size for mobile readability (e.g., text-sm to text-base), and ensure the logo + tagline are horizontally aligned and centered or left-aligned within the glassmorphism header.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Engagement Calculator: inputs Views, Likes, Comments, Shares; calculates Engagement Rate = (Likes + Comments + Shares) / Views × 100 and shows result as percentage",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Growth Simulator: inputs Initial viewers, Shares per person, Rounds; calculates Total Reach = Initial × (Shares ^ Rounds) and shows result",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Decay Simulator: inputs Peak views, Decay rate, Days; calculates Remaining Views = Peak × (Decay rate ^ Days) and shows result",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Dark theme UI with simple layout, easy buttons, and clear result display across all calculators",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Redesign the app UI with a Gen Z aesthetic: bold gradients, trendy fonts, vibrant neon/pastel accent colors, modern card designs, fun micro-animations or emoji usage, and overall social-media-native energy",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add a logo to the app (user wants to incorporate a logo image into the app header/branding)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Make the logo larger in the app header",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Add more pages/screens to the app (user wants additional content pages beyond the three calculators)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Add a tagline 'Understand Virality Through Mathematics' beside the logo in the app header",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Viral Math App",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

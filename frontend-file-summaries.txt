@@ -1,0 +1,11 @@
+{
+  "frontend/src/index.css": "Gen Z dark theme with electric purple, hot pink, neon cyan, and neon green OKLCH palette; glassmorphism utilities, gradient text helpers, neon glow focus rings, and ambient animation classes.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with DM Sans/Space Grotesk fonts, Gen Z neon color tokens, bounce-scale/float/shimmer keyframes, and glow box-shadow utilities.",
+  "frontend/src/components/ResultCard.tsx": "Glassmorphism result card with gradient-colored value text, floating emoji, gradient accent top bar, and per-variant glow shadows; supports pink-purple, cyan-green, and purple-pink variants.",
+  "frontend/src/components/EngagementCalculator.tsx": "Engagement calculator with 2-column grid inputs, neon-pink focus rings, gradient pink-to-purple pill button with bounce-scale animation, and Gen Z-style error messages.",
+  "frontend/src/components/GrowthSimulator.tsx": "Growth simulator with neon-cyan focus inputs, gradient cyan-to-green pill button with bounce animation, and Gen Z-style error copy.",
+  "frontend/src/components/DecaySimulator.tsx": "Decay simulator with neon-purple focus inputs, gradient purple-to-pink pill button with bounce animation, and Gen Z-style error messages.",
+  "frontend/src/App.tsx": "Main app with enlarged logo (h-24) and a two-line tagline \"Understand Virality / Through Mathematics\" displayed beside the logo in the header using gradient text styling, plus split tab navigation into \"Calculators\" and \"Learn\" sections with conditional rendering of all five tab views.",
+  "frontend/src/components/HowItWorks.tsx": "New \"How It Works\" page component explaining the math behind all three calculators (Engagement Rate, Viral Growth, View Decay) with formula breakdowns, step-by-step explanations, benchmarks, and pro tips styled in the dark Gen Z neon/glassmorphism aesthetic.",
+  "frontend/src/components/TipsAndTricks.tsx": "New \"Tips & Tricks\" page component with five categories of actionable Instagram Reels growth advice (timing, hooks, hashtags, audio/trends, format) organized as glassmorphism cards with neon accent tags, styled consistently with the app's dark Gen Z theme."
+}

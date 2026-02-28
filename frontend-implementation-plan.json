@@ -1,0 +1,25 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add tagline beside logo in app header",
+  "requirements": [
+    {
+      "id": "REQ-14",
+      "summary": "Display 'Understand Virality Through Mathematics' tagline beside the logo in the app header",
+      "acceptanceCriteria": [
+        "The text 'Understand Virality Through Mathematics' appears in the app header immediately to the right of the logo image.",
+        "The logo and tagline are horizontally aligned (vertically centered relative to each other).",
+        "The tagline text is styled consistently with the existing dark Gen Z aesthetic (gradient or light-colored font).",
+        "The layout remains clean and readable on mobile screen widths without overflow or wrapping issues.",
+        "The logo retains its current size (80–100px height) and styling — no visible white box background."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Modify the glassmorphism header section to add the tagline 'Understand Virality Through Mathematics' immediately to the right of the logo image (frontend/public/assets/generated/logo.png). Wrap the logo and tagline in a horizontal flex container (flex items-center gap-3 or gap-4) to ensure vertical alignment. Apply gradient or light-colored text styling (e.g., bg-gradient-to-r from-purple-200 to-pink-200 bg-clip-text text-transparent or text-gray-100) with appropriate font size for mobile readability (text-sm sm:text-base). Ensure the container is centered or left-aligned within the existing header layout. Preserve the logo's current size (80–100px height) and all existing glassmorphism header background and layout structure. Do not modify any other sections of the component."
+        }
+      ]
+    }
+  ]
+}

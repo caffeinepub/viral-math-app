@@ -1,0 +1,23 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-in-the-app-header-in-app-tsx-display-the-text-understand-virality-through-mathematics-directly-beside-the-logo-image-frontend-public-assets-generated-logo-png-the-tagline-should-be-placed-to-the-right-of-the-logo-styled-to-match-the-existing-gen-z-dark-aesthetic-use-a-gradient-or-light-colored-font-consistent-with-the-current-header-typography-appropriate-font-size-for-mobile-readability-e-g-text-sm-to-text-base-and-ensure-the-logo-tagline-are-horizontally-aligned-and-centered-or-left-aligned-within-the-glassmorphism-header",
+      "featureTitle": "In the app header in App.tsx, display the text 'Understand Virality Through Mathematics' directly beside the logo image (frontend/public/assets/generated/logo.png). The tagline should be placed to the right of the logo, styled to match the existing Gen Z dark aesthetic — use a gradient or light-colored font consistent with the current header typography, appropriate font size for mobile readability (e.g., text-sm to text-base), and ensure the logo + tagline are horizontally aligned and centered or left-aligned within the glassmorphism header.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

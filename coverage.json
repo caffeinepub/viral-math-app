@@ -1,0 +1,37 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-28T16:57:27.160Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 1,
+    "implemented": 1,
+    "items": [
+      {
+        "id": "REQ-14",
+        "summary": "In the app header in App.tsx, display the text 'Understand Virality Through Mathematics' directly beside the logo image (frontend/public/assets/generated/logo.png). The tagline should be placed to the right of the logo, styled to match the existing Gen Z dark aesthetic — use a gradient or light-colored font consistent with the current header typography, appropriate font size for mobile readability (e.g., text-sm to text-base), and ensure the logo + tagline are horizontally aligned and centered or left-aligned within the glassmorphism header.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/App.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}
