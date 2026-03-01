@@ -3,7 +3,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { ResultCard } from './ResultCard';
-import { BarChart2, Percent, Calendar, AlertCircle } from 'lucide-react';
+import { DecayCurveChart } from './DecayCurveChart';
+import { BarChart2, Percent, Calendar, AlertCircle, Loader2 } from 'lucide-react';
 
 interface Fields {
   peakViews: string;
@@ -11,10 +12,19 @@ interface Fields {
   days: string;
 }
 
+interface ResultData {
+  value: string;
+  peakViews: number;
+  decayRate: number;
+  days: number;
+  key: number;
+}
+
 export function DecaySimulator() {
   const [fields, setFields] = useState<Fields>({ peakViews: '', decayRate: '', days: '' });
-  const [result, setResult] = useState<string | null>(null);
+  const [result, setResult] = useState<ResultData | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
   const [bouncing, setBouncing] = useState(false);
 
   const handleChange = (field: keyof Fields) => (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,18 +70,42 @@ export function DecaySimulator() {
     }
 
     if (days < 0) {
-      setError('Days can\'t be negative bestie.');
+      setError("Days can't be negative bestie.");
       setResult(null);
       return;
     }
 
-    const remaining = peakViews * Math.pow(decayRate, days);
-    setResult(Math.round(remaining).toLocaleString());
+    setLoading(true);
+    setResult(null);
     setError(null);
+
+    setTimeout(() => {
+      const remaining = peakViews * Math.pow(decayRate, days);
+      setResult({
+        value: Math.round(remaining).toLocaleString(),
+        peakViews,
+        decayRate,
+        days,
+        key: Date.now(),
+      });
+      setLoading(false);
+    }, 1000);
   };
 
   return (
     <div className="space-y-5">
+      <h3
+        className="font-display text-3xl font-extrabold text-center"
+        style={{
+          background: 'linear-gradient(135deg, oklch(0.68 0.26 295), oklch(0.72 0.30 340))',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
+        }}
+      >
+        View Decay Simulator
+      </h3>
+
       <div className="grid grid-cols-1 gap-3">
         <div className="space-y-1.5">
           <Label
@@ -91,8 +125,8 @@ export function DecaySimulator() {
             onChange={handleChange('peakViews')}
             className="neon-input h-11 text-base rounded-2xl font-medium"
             style={{
-              background: 'oklch(0.10 0.015 280 / 0.80)',
-              border: '1px solid oklch(0.40 0.04 280 / 0.50)',
+              background: 'oklch(0.08 0.018 285 / 0.80)',
+              border: '1px solid oklch(0.35 0.04 285 / 0.50)',
               color: 'oklch(0.97 0.008 280)',
             }}
           />
@@ -119,8 +153,8 @@ export function DecaySimulator() {
             onChange={handleChange('decayRate')}
             className="neon-input h-11 text-base rounded-2xl font-medium"
             style={{
-              background: 'oklch(0.10 0.015 280 / 0.80)',
-              border: '1px solid oklch(0.40 0.04 280 / 0.50)',
+              background: 'oklch(0.08 0.018 285 / 0.80)',
+              border: '1px solid oklch(0.35 0.04 285 / 0.50)',
               color: 'oklch(0.97 0.008 280)',
             }}
           />
@@ -147,8 +181,8 @@ export function DecaySimulator() {
             onChange={handleChange('days')}
             className="neon-input h-11 text-base rounded-2xl font-medium"
             style={{
-              background: 'oklch(0.10 0.015 280 / 0.80)',
-              border: '1px solid oklch(0.40 0.04 280 / 0.50)',
+              background: 'oklch(0.08 0.018 285 / 0.80)',
+              border: '1px solid oklch(0.35 0.04 285 / 0.50)',
               color: 'oklch(0.97 0.008 280)',
             }}
           />
@@ -157,17 +191,27 @@ export function DecaySimulator() {
 
       <button
         onClick={simulate}
+        disabled={loading}
         className={`
           w-full h-14 rounded-full font-display text-base font-extrabold uppercase tracking-wider
-          text-white transition-all duration-200 active:scale-95
+          text-white transition-all duration-200 active:scale-95 hover-glow-purple
+          flex items-center justify-center gap-2
           ${bouncing ? 'animate-bounce-scale' : ''}
+          ${loading ? 'opacity-80 cursor-not-allowed' : ''}
         `}
         style={{
-          background: 'linear-gradient(135deg, oklch(0.68 0.26 295), oklch(0.72 0.28 340))',
+          background: 'linear-gradient(135deg, oklch(0.68 0.26 295), oklch(0.72 0.30 340))',
           boxShadow: '0 4px 24px oklch(0.68 0.26 295 / 0.45), 0 1px 0 oklch(1 0 0 / 0.15) inset',
         }}
       >
-        📉 Simulate Decay
+        {loading ? (
+          <>
+            <Loader2 className="w-5 h-5 animate-spin" />
+            <span>Simulating...</span>
+          </>
+        ) : (
+          '📉 Simulate Decay'
+        )}
       </button>
 
       {error && (
@@ -178,16 +222,21 @@ export function DecaySimulator() {
       )}
 
       {result !== null && (
-        <div className="animate-fade-in">
+        <div key={result.key} className="space-y-4 animate-scale-in">
           <ResultCard
             label="Remaining Views"
-            value={result}
+            value={result.value}
             emoji="⏳"
             variant="purple-pink"
           />
-          <p className="text-center text-xs text-muted-foreground mt-3 font-medium">
+          <p className="text-center text-xs text-muted-foreground font-medium">
             Peak × (Decay Rate ^ Days)
           </p>
+          <DecayCurveChart
+            peakViews={result.peakViews}
+            decayRate={result.decayRate}
+            days={result.days}
+          />
         </div>
       )}
     </div>

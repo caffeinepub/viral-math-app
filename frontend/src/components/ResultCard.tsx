@@ -18,31 +18,31 @@ export function ResultCard({
   className,
 }: ResultCardProps) {
   const gradientMap = {
-    'pink-purple': 'linear-gradient(135deg, oklch(0.72 0.28 340), oklch(0.68 0.26 295))',
+    'pink-purple': 'linear-gradient(135deg, oklch(0.72 0.30 340), oklch(0.68 0.26 295))',
     'cyan-green': 'linear-gradient(135deg, oklch(0.82 0.20 195), oklch(0.78 0.22 145))',
-    'purple-pink': 'linear-gradient(135deg, oklch(0.68 0.26 295), oklch(0.72 0.28 340))',
+    'purple-pink': 'linear-gradient(135deg, oklch(0.68 0.26 295), oklch(0.72 0.30 340))',
   };
 
   const glowMap = {
-    'pink-purple': '0 0 40px oklch(0.72 0.28 340 / 0.30), 0 0 80px oklch(0.68 0.26 295 / 0.15)',
-    'cyan-green': '0 0 40px oklch(0.82 0.20 195 / 0.30), 0 0 80px oklch(0.78 0.22 145 / 0.15)',
-    'purple-pink': '0 0 40px oklch(0.68 0.26 295 / 0.30), 0 0 80px oklch(0.72 0.28 340 / 0.15)',
+    'pink-purple': '0 0 40px oklch(0.72 0.30 340 / 0.35), 0 0 80px oklch(0.68 0.26 295 / 0.18)',
+    'cyan-green': '0 0 40px oklch(0.82 0.20 195 / 0.35), 0 0 80px oklch(0.78 0.22 145 / 0.18)',
+    'purple-pink': '0 0 40px oklch(0.68 0.26 295 / 0.35), 0 0 80px oklch(0.72 0.30 340 / 0.18)',
   };
 
   const borderMap = {
-    'pink-purple': 'oklch(0.72 0.28 340 / 0.30)',
-    'cyan-green': 'oklch(0.82 0.20 195 / 0.30)',
-    'purple-pink': 'oklch(0.68 0.26 295 / 0.30)',
+    'pink-purple': 'oklch(0.72 0.30 340 / 0.35)',
+    'cyan-green': 'oklch(0.82 0.20 195 / 0.35)',
+    'purple-pink': 'oklch(0.68 0.26 295 / 0.35)',
   };
 
   return (
     <div
       className={cn(
-        'animate-scale-in rounded-3xl p-6 text-center relative overflow-hidden',
+        'rounded-3xl p-6 text-center relative overflow-hidden',
         className
       )}
       style={{
-        background: 'oklch(0.14 0.020 280 / 0.85)',
+        background: 'oklch(0.12 0.022 285 / 0.85)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
         border: `1px solid ${borderMap[variant]}`,

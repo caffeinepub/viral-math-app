@@ -1,23 +1,343 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add tagline beside logo in app header",
+  "title": "UI Overhaul, Graph Visualizations, Viral Meter, Compare Reels, Conclusion Screen & More",
   "requirements": [
     {
-      "id": "REQ-14",
-      "summary": "Display 'Understand Virality Through Mathematics' tagline beside the logo in the app header",
+      "id": "REQ-18",
+      "summary": "Update app-wide color scheme to dark purple → electric blue gradient background with neon pink/blue accents and white text",
       "acceptanceCriteria": [
-        "The text 'Understand Virality Through Mathematics' appears in the app header immediately to the right of the logo image.",
-        "The logo and tagline are horizontally aligned (vertically centered relative to each other).",
-        "The tagline text is styled consistently with the existing dark Gen Z aesthetic (gradient or light-colored font).",
-        "The layout remains clean and readable on mobile screen widths without overflow or wrapping issues.",
-        "The logo retains its current size (80–100px height) and styling — no visible white box background."
+        "App background displays a dark purple → electric blue gradient",
+        "Primary accent color is neon pink and secondary is electric blue",
+        "All body text is white or near-white for high contrast",
+        "No warm-tone orange/magenta remnants remain as primary palette colors",
+        "All existing components visually integrate with the new palette"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update CSS custom properties to replace existing color palette with dark purple → electric blue gradient values. Replace --background with a gradient definition (dark purple to electric blue). Update --primary to neon pink (#FF10F0), --secondary to electric blue (#00D9FF), and ensure --foreground is white or near-white. Remove any warm-tone color definitions."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Update theme.extend.colors to map purple, hotPink, and cyan to the new neon pink (#FF10F0) and electric blue (#00D9FF) palette. Ensure background gradient utilities support dark purple to electric blue transitions."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Apply the dark purple → electric blue gradient background to the main container div using Tailwind gradient utilities (e.g., bg-gradient-to-br from-purple-900 via-purple-800 to-blue-600). Ensure the gradient covers the entire app shell and all child components inherit or complement the palette."
+        }
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "summary": "Add emoji icons (👁 Views, ❤️ Likes, 💬 Comments, 🔁 Shares) as input prefix adornments in Engagement Calculator",
+      "acceptanceCriteria": [
+        "Each of the four inputs in the Engagement Calculator displays its corresponding emoji icon as a left-side prefix",
+        "Icons are visible and do not obscure the typed value",
+        "Input styling remains consistent with the existing neon border/glassmorphism design"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/EngagementCalculator.tsx",
+          "operation": "modify",
+          "description": "Wrap each input element (Views, Likes, Comments, Shares) in a relative container div. Add an absolute-positioned emoji span as a left prefix inside each input: 👁 for Views, ❤️ for Likes, 💬 for Comments, 🔁 for Shares. Apply left padding to the input to prevent text overlap with the emoji. Maintain existing glassmorphism and neon border styles."
+        }
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "summary": "Upgrade all section and tool headings to larger sizes (text-3xl/text-4xl), bold weight, and gradient text styling",
+      "acceptanceCriteria": [
+        "Primary tool/section headings are visually larger than before (text-3xl or greater)",
+        "Headings use bold font weight",
+        "Headings render with gradient text color using the app's neon palette"
       ],
       "file_operations": [
         {
           "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Modify the glassmorphism header section to add the tagline 'Understand Virality Through Mathematics' immediately to the right of the logo image (frontend/public/assets/generated/logo.png). Wrap the logo and tagline in a horizontal flex container (flex items-center gap-3 or gap-4) to ensure vertical alignment. Apply gradient or light-colored text styling (e.g., bg-gradient-to-r from-purple-200 to-pink-200 bg-clip-text text-transparent or text-gray-100) with appropriate font size for mobile readability (text-sm sm:text-base). Ensure the container is centered or left-aligned within the existing header layout. Preserve the logo's current size (80–100px height) and all existing glassmorphism header background and layout structure. Do not modify any other sections of the component."
+          "description": "Update the main app title 'Viral Math' and subtitle 'Understand Virality Through Mathematics' to use text-4xl or text-5xl, font-bold, and the gradient-text utility class. Ensure the gradient uses the new neon pink → electric blue palette."
+        },
+        {
+          "path": "frontend/src/components/EngagementCalculator.tsx",
+          "operation": "modify",
+          "description": "Update the heading 'Engagement Rate Calculator' to text-3xl, font-bold, and apply gradient-text utility class."
+        },
+        {
+          "path": "frontend/src/components/GrowthSimulator.tsx",
+          "operation": "modify",
+          "description": "Update the heading 'Viral Growth Simulator' to text-3xl, font-bold, and apply gradient-text utility class."
+        },
+        {
+          "path": "frontend/src/components/DecaySimulator.tsx",
+          "operation": "modify",
+          "description": "Update the heading 'View Decay Simulator' to text-3xl, font-bold, and apply gradient-text utility class."
+        }
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "summary": "Add smooth scale-in and fade-in entrance animations (300–500ms) to result displays in all calculators",
+      "acceptanceCriteria": [
+        "Result cards in all three calculators animate in with a scale + fade effect on first render",
+        "Animation plays each time a new result is calculated",
+        "Animation does not block or delay result display beyond the animation duration itself"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ResultCard.tsx",
+          "operation": "modify",
+          "description": "Add Tailwind animate-in or transition classes to the root div: apply transition-all duration-500 ease-out, and use a conditional class that applies opacity-0 scale-95 initially, then opacity-100 scale-100 when the component mounts. Alternatively, use a CSS keyframe animation for scale + fade-in over 400ms."
+        },
+        {
+          "path": "frontend/src/components/EngagementCalculator.tsx",
+          "operation": "modify",
+          "description": "Ensure the result rendering logic triggers the ResultCard animation by toggling a key or state flag each time a new result is calculated, so the animation replays on every Calculate click."
+        },
+        {
+          "path": "frontend/src/components/GrowthSimulator.tsx",
+          "operation": "modify",
+          "description": "Ensure the result rendering logic triggers the ResultCard animation by toggling a key or state flag each time a new result is calculated, so the animation replays on every Simulate click."
+        },
+        {
+          "path": "frontend/src/components/DecaySimulator.tsx",
+          "operation": "modify",
+          "description": "Ensure the result rendering logic triggers the ResultCard animation by toggling a key or state flag each time a new result is calculated, so the animation replays on every Simulate click."
+        }
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "summary": "Add 1-second loading spinner animation to all Calculate/Simulate buttons before showing results",
+      "acceptanceCriteria": [
+        "Clicking Calculate/Simulate shows a spinner inside the button for ~1 second",
+        "The button is disabled during the loading state to prevent double-submission",
+        "After ~1 second the spinner disappears and the result is displayed with the entrance animation"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/EngagementCalculator.tsx",
+          "operation": "modify",
+          "description": "Add a loading state (useState). On Calculate button click, set loading to true, disable the button, and show a spinning icon (e.g., an SVG spinner or a rotating circle using animate-spin) inside the button text. After 1000ms (setTimeout), set loading to false and compute/display the result."
+        },
+        {
+          "path": "frontend/src/components/GrowthSimulator.tsx",
+          "operation": "modify",
+          "description": "Add a loading state (useState). On Simulate button click, set loading to true, disable the button, and show a spinning icon inside the button text. After 1000ms (setTimeout), set loading to false and compute/display the result."
+        },
+        {
+          "path": "frontend/src/components/DecaySimulator.tsx",
+          "operation": "modify",
+          "description": "Add a loading state (useState). On Simulate button click, set loading to true, disable the button, and show a spinning icon inside the button text. After 1000ms (setTimeout), set loading to false and compute/display the result."
+        }
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "summary": "Add glowing pulse hover effect and scale-down bounce click animation to all action buttons",
+      "acceptanceCriteria": [
+        "All Calculate/Simulate buttons display a neon glow shadow on hover",
+        "Clicking a button triggers a brief scale bounce animation",
+        "The glowing effect uses the app's neon pink or electric blue palette"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/EngagementCalculator.tsx",
+          "operation": "modify",
+          "description": "Add hover:glow-pink (or similar existing glow utility) and active:scale-95 transition-transform classes to the Calculate button. Ensure the glow shadow uses neon pink from the updated palette."
+        },
+        {
+          "path": "frontend/src/components/GrowthSimulator.tsx",
+          "operation": "modify",
+          "description": "Add hover:glow-cyan (or similar existing glow utility) and active:scale-95 transition-transform classes to the Simulate button. Ensure the glow shadow uses electric blue from the updated palette."
+        },
+        {
+          "path": "frontend/src/components/DecaySimulator.tsx",
+          "operation": "modify",
+          "description": "Add hover:glow-pink (or similar existing glow utility) and active:scale-95 transition-transform classes to the Simulate button. Ensure the glow shadow uses neon pink or electric blue from the updated palette."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "If glow utility classes do not exist or need updating, define or update .glow-pink and .glow-cyan with box-shadow using the new neon pink (#FF10F0) and electric blue (#00D9FF) colors at appropriate blur/spread values."
+        }
+      ]
+    },
+    {
+      "id": "REQ-24",
+      "summary": "Add interactive bar chart below Engagement Calculator result showing Likes, Comments, Shares breakdown",
+      "acceptanceCriteria": [
+        "A bar chart appears below the Engagement Calculator result showing Likes, Comments, and Shares bars",
+        "Bars are labeled with their numeric values",
+        "Chart uses neon colors consistent with the app palette",
+        "Chart only renders when a valid engagement result is present"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/EngagementBarChart.tsx",
+          "operation": "create",
+          "description": "Create a new functional component EngagementBarChart that accepts props: likes, comments, shares (all numbers). Render three horizontal or vertical bars using SVG or CSS (flex with height/width based on value ratios). Style each bar with a neon color (pink, cyan, purple) and display the numeric value as a label inside or above each bar. Wrap in a glassmorphism card container."
+        },
+        {
+          "path": "frontend/src/components/EngagementCalculator.tsx",
+          "operation": "modify",
+          "description": "Import and render the EngagementBarChart component below the ResultCard when a valid result exists. Pass the likes, comments, and shares input values as props to the chart component."
+        }
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "summary": "Add interactive exponential growth curve chart below Growth Simulator result",
+      "acceptanceCriteria": [
+        "An exponential growth curve appears below the Growth Simulator result",
+        "X-axis shows rounds 0 through N (user input), Y-axis shows total reach at each round",
+        "Curve is rendered in a neon accent color with the glassmorphism card background",
+        "Chart only renders when a valid simulation result is present"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/GrowthCurveChart.tsx",
+          "operation": "create",
+          "description": "Create a new functional component GrowthCurveChart that accepts props: initialViewers (number), sharesPerPerson (number), rounds (number). Compute total reach at each round from 0 to rounds using the formula: initialViewers * (sharesPerPerson ^ round). Render an SVG line chart with X-axis (rounds) and Y-axis (reach). Style the curve line with a neon electric blue stroke and wrap in a glassmorphism card."
+        },
+        {
+          "path": "frontend/src/components/GrowthSimulator.tsx",
+          "operation": "modify",
+          "description": "Import and render the GrowthCurveChart component below the ResultCard when a valid result exists. Pass the initialViewers, sharesPerPerson, and rounds input values as props to the chart component."
+        }
+      ]
+    },
+    {
+      "id": "REQ-26",
+      "summary": "Add interactive decay curve chart below Decay Simulator result",
+      "acceptanceCriteria": [
+        "A decay curve appears below the Decay Simulator result",
+        "X-axis shows days 0 through N (user input), Y-axis shows remaining views at each day",
+        "Curve descends from peak views toward zero styled in neon accent color",
+        "Chart only renders when a valid simulation result is present"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/DecayCurveChart.tsx",
+          "operation": "create",
+          "description": "Create a new functional component DecayCurveChart that accepts props: peakViews (number), decayRate (number), days (number). Compute remaining views at each day from 0 to days using the formula: peakViews * ((1 - decayRate/100) ^ day). Render an SVG line chart with X-axis (days) and Y-axis (views). Style the curve line with a neon pink or purple stroke and wrap in a glassmorphism card."
+        },
+        {
+          "path": "frontend/src/components/DecaySimulator.tsx",
+          "operation": "modify",
+          "description": "Import and render the DecayCurveChart component below the ResultCard when a valid result exists. Pass the peakViews, decayRate, and days input values as props to the chart component."
+        }
+      ]
+    },
+    {
+      "id": "REQ-27",
+      "summary": "Add Viral Prediction Meter (speedometer gauge with red/yellow/green zones) to Engagement Calculator results",
+      "acceptanceCriteria": [
+        "A speedometer/gauge element appears in the Engagement Calculator after a valid result",
+        "Gauge displays three colored zones: red (0–3%), yellow (3–7%), green (7%+)",
+        "A visual indicator (needle or arc fill) shows the computed engagement rate position",
+        "The current zone label (Low / Medium / High Viral Chance) is displayed as text",
+        "Gauge only renders when a valid engagement result is present"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ViralMeter.tsx",
+          "operation": "create",
+          "description": "Create a new functional component ViralMeter that accepts props: engagementRate (number, 0–100). Render an SVG-based speedometer gauge with three arc segments: red (0–3%), yellow (3–7%), green (7%+). Position a needle or fill an arc segment to indicate the engagementRate value. Display a label below the gauge showing the zone: '🔴 Low' (0–3%), '🟡 Medium' (3–7%), or '🟢 High Viral Chance' (7%+). Wrap in a glassmorphism card."
+        },
+        {
+          "path": "frontend/src/components/EngagementCalculator.tsx",
+          "operation": "modify",
+          "description": "Import and render the ViralMeter component below the ResultCard when a valid result exists. Pass the computed engagementRate as a prop to the ViralMeter component."
+        }
+      ]
+    },
+    {
+      "id": "REQ-28",
+      "summary": "Create 'Compare Two Reels' screen with side-by-side input panels and winner declaration",
+      "acceptanceCriteria": [
+        "A 'Compare Two Reels' tab/screen is accessible from the main navigation",
+        "Two input panels accept Views, Likes, Comments, and Shares for Reel 1 and Reel 2",
+        "A 'Compare' button triggers computation of engagement rate for both reels",
+        "Results display each reel's engagement rate and a winner banner highlighting the higher one",
+        "Tie case is handled gracefully (e.g., 'It's a Tie! 🤝')",
+        "Validation shows an error message if any field is empty or invalid",
+        "UI uses glassmorphism card style, neon gradients, and Space Grotesk font"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CompareReels.tsx",
+          "operation": "create",
+          "description": "Create a new functional component CompareReels. Render two input panels side-by-side (or stacked on mobile) with four inputs each (Views, Likes, Comments, Shares) for Reel 1 and Reel 2. Add a 'Compare' button that validates all inputs and computes the engagement rate for each reel using the formula (Likes + Comments + Shares) / Views * 100. Display each reel's engagement rate in ResultCard components and show a winner banner ('🏆 Reel 1 Wins!' or '🏆 Reel 2 Wins!' or 'It's a Tie! 🤝') based on which rate is higher. Show an error message if any field is empty or invalid. Style with glassmorphism cards, neon gradients, and Space Grotesk font."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a new tab 'Compare Two Reels' to the navigation tabs array (likely in the Calculators section). Update the conditional rendering logic to display the CompareReels component when this tab is active. Ensure the tab button styling matches existing tabs with glassmorphism and neon accent colors."
+        }
+      ]
+    },
+    {
+      "id": "REQ-29",
+      "summary": "Create 'Why Reels Go Viral?' informational screen explaining key virality factors",
+      "acceptanceCriteria": [
+        "A 'Why Reels Go Viral?' screen or section is accessible from the navigation",
+        "At least three factors are displayed: watch time, shares, hook in first 3 seconds",
+        "Each factor has an emoji/icon, bold title, and short explanation",
+        "UI is styled with glassmorphism cards and neon accents"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/WhyReelsGoViral.tsx",
+          "operation": "create",
+          "description": "Create a new functional component WhyReelsGoViral. Render three glassmorphism cards, each containing: (1) '⏱️ High Watch Time' with explanation 'Keeping viewers engaged longer signals quality to the algorithm, boosting promotion.', (2) '🔁 More Shares' with explanation 'Each share amplifies reach exponentially, spreading your content to new audiences.', (3) '🎯 Strong Hook in First 3 Seconds' with explanation 'Capturing attention immediately prevents users from scrolling past your reel.' Style each card with an emoji, bold text-xl title, and a one-to-two sentence explanation. Apply glassmorphism, neon gradients, and Space Grotesk font."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a new tab 'Why Reels Go Viral?' to the navigation tabs array (likely in the Learn section). Update the conditional rendering logic to display the WhyReelsGoViral component when this tab is active. Ensure the tab button styling matches existing tabs."
+        }
+      ]
+    },
+    {
+      "id": "REQ-30",
+      "summary": "Update app header tagline to 'Virality is Mathematics, Not Magic.' with gradient text styling",
+      "acceptanceCriteria": [
+        "The header displays the tagline 'Virality is Mathematics, Not Magic.'",
+        "Tagline uses gradient text styling consistent with the neon palette",
+        "No duplicate taglines appear in the header",
+        "Tagline is readable on mobile screen widths"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Replace the existing subtitle/tagline 'Understand Virality Through Mathematics' with 'Virality is Mathematics, Not Magic.' Apply the gradient-text utility class and use text-sm or text-base for mobile readability. Ensure the new tagline does not duplicate any existing text and is prominently displayed below or beside the logo in the header."
+        }
+      ]
+    },
+    {
+      "id": "REQ-31",
+      "summary": "Create 'What We Learned' conclusion screen with four takeaway cards and motivational closing line",
+      "acceptanceCriteria": [
+        "A 'What We Learned' screen is accessible from the tab navigation",
+        "Four takeaway cards are displayed with emoji, bold title, and one-sentence explanation",
+        "A motivational closing line appears at the bottom",
+        "UI uses glassmorphism cards and neon gradient accents consistent with the rest of the app"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/WhatWeLearned.tsx",
+          "operation": "create",
+          "description": "Create a new functional component WhatWeLearned. Render four glassmorphism cards with takeaways: (1) '📊 Percentage Controls Engagement' with explanation 'The engagement rate formula reveals how much interaction your content generates.', (2) '🚀 Sharing Creates Exponential Growth' with explanation 'Each share multiplies your reach, driving viral momentum.', (3) '⏳ Time Causes Decay' with explanation 'Views naturally decline over time, making timing and consistency critical.', (4) '🤖 The Algorithm Works on Logic' with explanation 'Understanding the math behind virality helps you create strategic content.' Display a motivational closing line at the bottom: 'Now you know the math behind every viral moment. 🚀'. Style with glassmorphism cards, neon gradients, and Space Grotesk font."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a new tab 'What We Learned' to the navigation tabs array (likely at the end or in the Learn section). Update the conditional rendering logic to display the WhatWeLearned component when this tab is active. Ensure the tab button styling matches existing tabs."
         }
       ]
     }

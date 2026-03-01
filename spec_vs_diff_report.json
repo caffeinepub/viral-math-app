@@ -1,22 +1,35 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-28T16:57:27.157Z",
-  "summary": "REQ-14 is implemented in the diff. The App.tsx file was modified to display the tagline 'Understand Virality Through Mathematics' beside the logo in the header with gradient text styling, and the file summary confirms a two-line tagline displayed beside the logo using gradient text styling. All acceptance criteria appear to be addressed.",
-  "missing_requirements": [],
-  "hallucinated_features": [
+  "generatedAt": "2026-03-01T06:54:06.552Z",
+  "summary": "The diff implements nearly all requirements from REQ-18 through REQ-31. New components are added for CompareReels, WhyReelsGoViral, WhatWeLearned, ViralMeter, EngagementBarChart, GrowthCurveChart, and DecayCurveChart. Existing calculators are updated with emoji input prefixes, gradient headings, loading spinners, and bounce animations. The color scheme is overhauled to the neon palette. However, the result card entrance animation (REQ-21) and the header tagline update (REQ-30) are not clearly evidenced in the truncated diff.",
+  "missing_requirements": [
     {
-      "description": "The tagline is rendered as two separate lines ('Understand Virality / Through Mathematics') rather than a single inline text string.",
-      "reason": "The build request specifies the exact text 'Understand Virality Through Mathematics' as a single continuous string. The file summary describes it as a 'two-line tagline' split across two lines, which may cause wrapping that deviates from the single-line intent, though this could also be an intentional mobile readability choice.",
+      "id": "REQ-21",
+      "requirement": "Add smooth entrance animations (scale-in + fade-in, 300-500ms) to result displays across all three calculators when a result appears.",
+      "reason": "The diff shows ResultCard.tsx has no entrance animation classes or keyframe styles. The calculators use a key prop to force re-mount but no animation CSS such as animate-in, scale-in, or fade-in transitions is visible in the ResultCard or calculator components. The 300-500ms scale+fade requirement is not evidenced.",
       "evidence": [
-        "frontend-file-summaries.txt"
+        "frontend/src/components/ResultCard.tsx",
+        "frontend/src/components/EngagementCalculator.tsx",
+        "frontend/src/components/GrowthSimulator.tsx",
+        "frontend/src/components/DecaySimulator.tsx"
       ]
     },
     {
-      "description": "Logo height enlarged to h-24 (96px) in the header.",
-      "reason": "The build request explicitly states not to alter the logo size or its existing styling. The file summary notes the logo was enlarged to h-24, which is a change to the logo size.",
+      "id": "REQ-30",
+      "requirement": "Update the app header tagline to 'Virality is Mathematics, Not Magic.' with gradient text styling, replacing or consolidating any duplicate taglines.",
+      "reason": "The App.tsx diff is truncated and does not show the header section. There is no evidence the tagline 'Virality is Mathematics, Not Magic.' was added or that any existing tagline was consolidated or replaced.",
       "evidence": [
-        "frontend-file-summaries.txt"
+        "frontend/src/App.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "WhyReelsGoViral component includes six factors instead of the three required.",
+      "reason": "REQ-29 specifies exactly three factors: high watch time, more shares, and a strong hook in the first 3 seconds. The diff adds three additional unrequested factors: high comment engagement, trending audio, and vertical full-screen format.",
+      "evidence": [
+        "frontend/src/components/WhyReelsGoViral.tsx"
       ]
     }
   ],
@@ -24,6 +37,19 @@
   "changed_files": [
     "frontend-file-summaries.txt",
     "frontend/src/App.tsx",
+    "frontend/src/components/CompareReels.tsx",
+    "frontend/src/components/DecayCurveChart.tsx",
+    "frontend/src/components/DecaySimulator.tsx",
+    "frontend/src/components/EngagementBarChart.tsx",
+    "frontend/src/components/EngagementCalculator.tsx",
+    "frontend/src/components/GrowthCurveChart.tsx",
+    "frontend/src/components/GrowthSimulator.tsx",
+    "frontend/src/components/ResultCard.tsx",
+    "frontend/src/components/ViralMeter.tsx",
+    "frontend/src/components/WhatWeLearned.tsx",
+    "frontend/src/components/WhyReelsGoViral.tsx",
+    "frontend/src/index.css",
+    "frontend/tailwind.config.js",
     "project_state.json"
   ]
 }

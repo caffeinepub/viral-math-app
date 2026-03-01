@@ -3,7 +3,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { ResultCard } from './ResultCard';
-import { Users, Share2, RefreshCw, AlertCircle } from 'lucide-react';
+import { GrowthCurveChart } from './GrowthCurveChart';
+import { Users, Share2, RefreshCw, AlertCircle, Loader2 } from 'lucide-react';
 
 interface Fields {
   initial: string;
@@ -11,10 +12,19 @@ interface Fields {
   rounds: string;
 }
 
+interface ResultData {
+  value: string;
+  initial: number;
+  sharesPerPerson: number;
+  rounds: number;
+  key: number;
+}
+
 export function GrowthSimulator() {
   const [fields, setFields] = useState<Fields>({ initial: '', sharesPerPerson: '', rounds: '' });
-  const [result, setResult] = useState<string | null>(null);
+  const [result, setResult] = useState<ResultData | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
   const [bouncing, setBouncing] = useState(false);
 
   const handleChange = (field: keyof Fields) => (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -54,7 +64,7 @@ export function GrowthSimulator() {
     }
 
     if (sharesPerPerson < 0) {
-      setError('Shares per person can\'t be negative.');
+      setError("Shares per person can't be negative.");
       setResult(null);
       return;
     }
@@ -68,13 +78,25 @@ export function GrowthSimulator() {
     const totalReach = initial * Math.pow(sharesPerPerson, rounds);
 
     if (!isFinite(totalReach)) {
-      setError('That\'s too big to display 🤯 Try smaller values.');
+      setError("That's too big to display 🤯 Try smaller values.");
       setResult(null);
       return;
     }
 
-    setResult(Math.round(totalReach).toLocaleString());
+    setLoading(true);
+    setResult(null);
     setError(null);
+
+    setTimeout(() => {
+      setResult({
+        value: Math.round(totalReach).toLocaleString(),
+        initial,
+        sharesPerPerson,
+        rounds,
+        key: Date.now(),
+      });
+      setLoading(false);
+    }, 1000);
   };
 
   const inputFields = [
@@ -85,6 +107,18 @@ export function GrowthSimulator() {
 
   return (
     <div className="space-y-5">
+      <h3
+        className="font-display text-3xl font-extrabold text-center"
+        style={{
+          background: 'linear-gradient(135deg, oklch(0.82 0.20 195), oklch(0.78 0.22 145))',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
+        }}
+      >
+        Viral Growth Simulator
+      </h3>
+
       <div className="grid grid-cols-1 gap-3">
         {inputFields.map(({ key, label, icon: Icon, placeholder }) => (
           <div key={key} className="space-y-1.5">
@@ -105,8 +139,8 @@ export function GrowthSimulator() {
               onChange={handleChange(key)}
               className="neon-input-cyan h-11 text-base rounded-2xl font-medium"
               style={{
-                background: 'oklch(0.10 0.015 280 / 0.80)',
-                border: '1px solid oklch(0.40 0.04 280 / 0.50)',
+                background: 'oklch(0.08 0.018 285 / 0.80)',
+                border: '1px solid oklch(0.35 0.04 285 / 0.50)',
                 color: 'oklch(0.97 0.008 280)',
               }}
             />
@@ -116,17 +150,27 @@ export function GrowthSimulator() {
 
       <button
         onClick={simulate}
+        disabled={loading}
         className={`
           w-full h-14 rounded-full font-display text-base font-extrabold uppercase tracking-wider
-          text-white transition-all duration-200 active:scale-95
+          text-white transition-all duration-200 active:scale-95 hover-glow-cyan
+          flex items-center justify-center gap-2
           ${bouncing ? 'animate-bounce-scale' : ''}
+          ${loading ? 'opacity-80 cursor-not-allowed' : ''}
         `}
         style={{
           background: 'linear-gradient(135deg, oklch(0.82 0.20 195), oklch(0.78 0.22 145))',
           boxShadow: '0 4px 24px oklch(0.82 0.20 195 / 0.45), 0 1px 0 oklch(1 0 0 / 0.15) inset',
         }}
       >
-        🚀 Simulate Growth
+        {loading ? (
+          <>
+            <Loader2 className="w-5 h-5 animate-spin" />
+            <span>Simulating...</span>
+          </>
+        ) : (
+          '🚀 Simulate Growth'
+        )}
       </button>
 
       {error && (
@@ -137,16 +181,21 @@ export function GrowthSimulator() {
       )}
 
       {result !== null && (
-        <div className="animate-fade-in">
+        <div key={result.key} className="space-y-4 animate-scale-in">
           <ResultCard
             label="Total Reach"
-            value={result}
+            value={result.value}
             emoji="📈"
             variant="cyan-green"
           />
-          <p className="text-center text-xs text-muted-foreground mt-3 font-medium">
+          <p className="text-center text-xs text-muted-foreground font-medium">
             Initial × (Shares Per Person ^ Rounds)
           </p>
+          <GrowthCurveChart
+            initialViewers={result.initial}
+            sharesPerPerson={result.sharesPerPerson}
+            rounds={result.rounds}
+          />
         </div>
       )}
     </div>

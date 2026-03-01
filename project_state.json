@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 11,
+  "projectStateVersion": 17,
   "summary": "A simple mobile app called Viral Math App that teaches students the mathematics behind viral Instagram reels. Features three calculators: Engagement Calculator, Growth Simulator, and Decay Simulator. Dark theme design with a Gen Z aesthetic — bold visuals, trendy typography, vibrant gradients, and modern social media energy.",
   "architectural_notes": [
     "Mobile app (simple single-page or tabbed layout) targeting students; no backend required — all calculations are client-side"
@@ -119,6 +119,142 @@
         "REQ-14"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-create-a-new-flashcard-game-screen-tab-accessible-from-the-existing-tab-navigation-in-app-tsx-the-game-presents-flashcards-covering-viral-math-concepts-engagement-rate-viral-growth-exponential-and-view-decay-each-card-shows-a-question-or-scenario-on-the-front-e-g-a-reel-has-10-000-views-800-likes-200-comments-100-shares-what-is-the-engagement-rate-and-reveals-the-answer-with-an-explanation-on-the-back-e-g-11-800-200-100-10000-100-the-deck-should-contain-at-least-12-cards-spread-across-all-three-topic-areas-users-can-tap-a-card-to-flip-it-then-navigate-to-the-next-card-with-a-next-button-and-optionally-restart-the-deck-track-and-display-progress-e-g-card-3-of-12-style-the-flashcard-game-consistently-with-the-existing-gen-z-dark-aesthetic-glassmorphism-card-style-neon-gradient-accents-space-grotesk-font-and-flip-scale-micro-animations-on-card-reveal",
+      "title": "Create a new 'Flashcard Game' screen/tab accessible from the existing tab navigation in App.tsx. The game presents flashcards covering viral math concepts: Engagement Rate, Viral Growth (exponential), and View Decay. Each card shows a question or scenario on the front (e.g., 'A reel has 10,000 views, 800 likes, 200 comments, 100 shares. What is the Engagement Rate?') and reveals the answer with an explanation on the back (e.g., '11% — (800+200+100)/10000×100'). The deck should contain at least 12 cards spread across all three topic areas. Users can tap a card to flip it, then navigate to the next card with a 'Next' button and optionally restart the deck. Track and display progress (e.g., 'Card 3 of 12'). Style the flashcard game consistently with the existing Gen Z dark aesthetic: glassmorphism card style, neon gradient accents, Space Grotesk font, and flip/scale micro-animations on card reveal.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-number-guesser-mini-game-screen-tab-accessible-from-the-existing-tab-navigation-in-app-tsx-the-game-shows-the-user-a-viral-math-scenario-e-g-a-reel-had-5-000-views-and-got-250-likes-50-comments-25-shares-what-is-the-engagement-rate-and-asks-them-to-type-a-numeric-answer-after-submitting-show-whether-they-were-correct-within-a-small-tolerance-e-g-0-5-with-a-fun-emoji-reaction-correct-try-again-include-a-next-question-button-to-cycle-through-at-least-10-pre-written-questions-covering-engagement-rate-viral-growth-and-view-decay-display-a-running-score-e-g-4-10-correct-style-consistently-with-the-existing-gen-z-dark-glassmorphism-aesthetic-neon-gradient-accents-space-grotesk-font-pill-shaped-input-and-button",
+      "title": "Create a 'Number Guesser' mini-game screen/tab accessible from the existing tab navigation in App.tsx. The game shows the user a viral math scenario (e.g., 'A reel had 5,000 views and got 250 likes, 50 comments, 25 shares — what is the engagement rate?') and asks them to type a numeric answer. After submitting, show whether they were correct (within a small tolerance, e.g., ±0.5%) with a fun emoji reaction (🔥 correct, 😬 try again). Include a 'Next Question' button to cycle through at least 10 pre-written questions covering engagement rate, viral growth, and view decay. Display a running score (e.g., '4 / 10 correct'). Style consistently with the existing Gen Z dark glassmorphism aesthetic — neon gradient accents, Space Grotesk font, pill-shaped input and button.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-true-or-false-mini-game-screen-tab-accessible-from-the-existing-tab-navigation-in-app-tsx-the-game-displays-a-viral-math-statement-e-g-if-a-reel-gets-10-engagement-rate-that-is-considered-very-high-and-the-user-taps-either-a-true-or-false-button-after-tapping-reveal-whether-the-answer-is-correct-with-a-brief-one-line-explanation-and-a-fun-emoji-include-at-least-12-pre-written-statements-covering-engagement-rate-benchmarks-growth-patterns-and-decay-facts-display-progress-e-g-question-3-of-12-and-a-running-score-after-all-questions-show-a-final-score-with-a-restart-button-style-consistently-with-the-existing-gen-z-dark-glassmorphism-aesthetic-large-pill-shaped-true-false-buttons-using-neon-gradient-fills-e-g-green-for-true-pink-red-for-false-space-grotesk-font",
+      "title": "Create a 'True or False' mini-game screen/tab accessible from the existing tab navigation in App.tsx. The game displays a viral math statement (e.g., 'If a reel gets 10% engagement rate, that is considered very high') and the user taps either a TRUE or FALSE button. After tapping, reveal whether the answer is correct with a brief one-line explanation and a fun emoji. Include at least 12 pre-written statements covering engagement rate benchmarks, growth patterns, and decay facts. Display progress (e.g., 'Question 3 of 12') and a running score. After all questions, show a final score with a restart button. Style consistently with the existing Gen Z dark glassmorphism aesthetic — large pill-shaped TRUE/FALSE buttons using neon gradient fills (e.g., green for TRUE, pink/red for FALSE), Space Grotesk font.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-app-wide-color-scheme-to-use-a-dark-purple-electric-blue-gradient-background-neon-pink-and-electric-blue-accent-colors-and-white-text-throughout-replace-any-existing-warm-tone-or-mixed-palette-colors-with-this-cohesive-neon-palette-apply-the-gradient-background-to-the-main-app-shell-in-app-tsx-and-ensure-all-components-calculators-games-info-pages-inherit-or-complement-this-palette-consistently",
+      "title": "Update the app-wide color scheme to use a dark purple → electric blue gradient background, neon pink and electric blue accent colors, and white text throughout. Replace any existing warm-tone or mixed-palette colors with this cohesive neon palette. Apply the gradient background to the main app shell in App.tsx and ensure all components (calculators, games, info pages) inherit or complement this palette consistently.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-engagement-calculator-engagementcalculator-tsx-add-inline-emoji-icons-as-prefix-adornments-inside-the-input-fields-for-views-for-likes-for-comments-and-for-shares-the-icons-should-be-visible-inside-the-input-box-on-the-left-side-consistent-with-the-existing-neon-glassmorphism-input-styling",
+      "title": "In the Engagement Calculator (EngagementCalculator.tsx), add inline emoji icons as prefix adornments inside the input fields: 👁 for Views, ❤️ for Likes, 💬 for Comments, and 🔁 for Shares. The icons should be visible inside the input box on the left side, consistent with the existing neon glassmorphism input styling.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-upgrade-all-section-and-tool-headings-across-the-app-in-app-tsx-engagementcalculator-tsx-growthsimulator-tsx-decaysimulator-tsx-and-any-other-component-with-headings-to-use-larger-font-sizes-e-g-text-3xl-or-text-4xl-for-primary-headings-and-bold-font-weight-apply-gradient-text-styling-using-the-existing-gradient-text-utility-class-or-equivalent-to-make-headings-visually-prominent",
+      "title": "Upgrade all section and tool headings across the app (in App.tsx, EngagementCalculator.tsx, GrowthSimulator.tsx, DecaySimulator.tsx, and any other component with headings) to use larger font sizes (e.g., text-3xl or text-4xl for primary headings) and bold font weight. Apply gradient text styling (using the existing gradient-text utility class or equivalent) to make headings visually prominent.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-smooth-entrance-animations-to-result-displays-across-all-calculators-engagementcalculator-tsx-growthsimulator-tsx-decaysimulator-tsx-when-a-result-becomes-visible-after-clicking-calculate-simulate-the-result-card-should-animate-in-with-a-scale-in-and-fade-in-transition-e-g-using-tailwind-s-transition-animate-utilities-or-inline-css-keyframe-animation-the-animation-duration-should-be-300-500ms",
+      "title": "Add smooth entrance animations to result displays across all calculators (EngagementCalculator.tsx, GrowthSimulator.tsx, DecaySimulator.tsx). When a result becomes visible after clicking Calculate/Simulate, the result card should animate in with a scale-in and fade-in transition (e.g., using Tailwind's transition/animate utilities or inline CSS keyframe animation). The animation duration should be 300–500ms.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-loading-animation-to-all-calculator-calculate-simulate-buttons-engagementcalculator-tsx-growthsimulator-tsx-decaysimulator-tsx-when-the-button-is-clicked-disable-it-and-show-a-spinning-icon-inside-the-button-for-approximately-1-second-before-revealing-the-result-this-simulates-algorithm-processing-and-adds-perceived-interactivity",
+      "title": "Add a loading animation to all calculator Calculate/Simulate buttons (EngagementCalculator.tsx, GrowthSimulator.tsx, DecaySimulator.tsx). When the button is clicked, disable it and show a spinning icon inside the button for approximately 1 second before revealing the result. This simulates algorithm processing and adds perceived interactivity.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-glowing-pulse-effect-to-all-action-buttons-calculate-simulate-across-the-app-on-hover-and-click-on-hover-the-button-should-display-a-neon-glow-shadow-using-the-existing-glow-utility-classes-on-click-active-state-add-a-brief-scale-down-bounce-scale-0-95-1-micro-animation-to-reinforce-tactile-feedback",
+      "title": "Add a glowing pulse effect to all action buttons (Calculate/Simulate) across the app on hover and click. On hover the button should display a neon glow shadow (using the existing glow utility classes). On click/active state, add a brief scale-down bounce (scale 0.95 → 1) micro-animation to reinforce tactile feedback.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-after-the-engagement-calculator-displays-its-result-render-an-interactive-bar-chart-below-the-resultcard-showing-the-breakdown-of-likes-comments-and-shares-as-three-bars-using-a-lightweight-charting-approach-with-svg-or-a-react-charting-library-such-as-recharts-if-available-otherwise-build-a-css-svg-bar-chart-each-bar-should-be-neon-colored-and-labeled-with-its-value-the-chart-should-only-appear-when-a-valid-result-exists",
+      "title": "After the Engagement Calculator displays its result, render an interactive bar chart below the ResultCard showing the breakdown of Likes, Comments, and Shares as three bars (using a lightweight charting approach with SVG or a React charting library such as Recharts if available, otherwise build a CSS/SVG bar chart). Each bar should be neon-colored and labeled with its value. The chart should only appear when a valid result exists.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-after-the-growth-simulator-displays-its-result-render-an-interactive-exponential-growth-curve-chart-below-the-resultcard-the-x-axis-represents-rounds-0-to-the-input-number-of-rounds-and-the-y-axis-represents-total-reach-at-each-round-computed-using-the-same-formula-use-an-svg-line-chart-or-similar-approach-styled-with-neon-colors-the-chart-should-only-appear-when-a-valid-result-exists",
+      "title": "After the Growth Simulator displays its result, render an interactive exponential growth curve chart below the ResultCard. The X-axis represents rounds (0 to the input number of rounds) and the Y-axis represents total reach at each round, computed using the same formula. Use an SVG line chart or similar approach styled with neon colors. The chart should only appear when a valid result exists.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-after-the-decay-simulator-displays-its-result-render-an-interactive-decay-curve-chart-below-the-resultcard-the-x-axis-represents-days-0-to-the-input-number-of-days-and-the-y-axis-represents-remaining-views-at-each-day-computed-using-the-decay-formula-style-with-neon-colors-consistent-with-the-app-palette-the-chart-should-only-appear-when-a-valid-result-exists",
+      "title": "After the Decay Simulator displays its result, render an interactive decay curve chart below the ResultCard. The X-axis represents days (0 to the input number of days) and the Y-axis represents remaining views at each day, computed using the decay formula. Style with neon colors consistent with the app palette. The chart should only appear when a valid result exists.",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-viral-prediction-meter-to-the-engagement-calculator-results-area-engagementcalculator-tsx-after-a-valid-engagement-rate-is-calculated-display-a-speedometer-style-gauge-below-the-result-card-with-three-colored-zones-red-0-3-low-yellow-3-7-medium-green-7-high-viral-chance-a-needle-or-highlighted-arc-segment-should-indicate-where-the-computed-engagement-rate-falls-display-the-zone-label-e-g-high-viral-chance-as-text-beneath-the-gauge-the-meter-should-only-appear-when-a-valid-result-exists",
+      "title": "Add a Viral Prediction Meter to the Engagement Calculator results area (EngagementCalculator.tsx). After a valid engagement rate is calculated, display a speedometer-style gauge below the result card with three colored zones: 🔴 Red (0–3% — Low), 🟡 Yellow (3–7% — Medium), 🟢 Green (7%+ — High Viral Chance). A needle or highlighted arc segment should indicate where the computed engagement rate falls. Display the zone label (e.g., 'High Viral Chance 🟢') as text beneath the gauge. The meter should only appear when a valid result exists.",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-new-compare-two-reels-screen-accessible-from-the-existing-tab-navigation-in-app-tsx-the-screen-allows-the-user-to-enter-views-likes-comments-and-shares-for-reel-1-and-reel-2-in-two-side-by-side-or-stacked-on-mobile-input-panels-on-clicking-a-compare-button-compute-the-engagement-rate-for-each-reel-and-declare-which-reel-has-higher-viral-probability-or-tie-if-equal-display-each-reel-s-engagement-rate-and-a-highlighted-winner-banner-e-g-reel-1-wins-show-a-friendly-error-if-any-field-is-empty-or-invalid-style-consistently-with-the-existing-gen-z-dark-glassmorphism-aesthetic",
+      "title": "Create a new 'Compare Two Reels' screen accessible from the existing tab navigation in App.tsx. The screen allows the user to enter Views, Likes, Comments, and Shares for Reel 1 and Reel 2 in two side-by-side (or stacked on mobile) input panels. On clicking a 'Compare' button, compute the engagement rate for each reel and declare which reel has higher viral probability (or tie if equal). Display each reel's engagement rate and a highlighted winner banner (e.g., '🏆 Reel 1 Wins!'). Show a friendly error if any field is empty or invalid. Style consistently with the existing Gen Z dark glassmorphism aesthetic.",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-new-why-reels-go-viral-informational-section-screen-accessible-from-the-tab-navigation-in-app-tsx-the-section-explains-key-real-life-factors-that-drive-virality-in-short-bullet-points-1-high-watch-time-keeps-the-algorithm-promoting-the-reel-2-more-shares-amplify-reach-exponentially-3-a-strong-hook-in-the-first-3-seconds-captures-attention-present-each-point-with-an-icon-or-emoji-a-bold-short-title-and-a-one-to-two-sentence-explanation-style-consistently-with-the-existing-gen-z-dark-glassmorphism-aesthetic",
+      "title": "Create a new 'Why Reels Go Viral?' informational section/screen accessible from the tab navigation in App.tsx. The section explains key real-life factors that drive virality in short bullet points: (1) High watch time keeps the algorithm promoting the reel, (2) More shares amplify reach exponentially, (3) A strong hook in the first 3 seconds captures attention. Present each point with an icon or emoji, a bold short title, and a one-to-two sentence explanation. Style consistently with the existing Gen Z dark glassmorphism aesthetic.",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-app-header-tagline-in-app-tsx-from-the-current-text-or-any-existing-tagline-to-virality-is-mathematics-not-magic-display-this-tagline-prominently-below-or-beside-the-logo-in-the-header-styled-with-gradient-text-using-the-app-s-neon-palette-and-an-appropriate-font-size-for-mobile-readability-text-sm-to-text-base-ensure-it-does-not-conflict-with-the-existing-understand-virality-through-mathematics-tagline-replace-or-consolidate-as-appropriate-to-avoid-duplication",
+      "title": "Update the app header tagline in App.tsx from the current text (or any existing tagline) to 'Virality is Mathematics, Not Magic.' Display this tagline prominently below or beside the logo in the header, styled with gradient text using the app's neon palette and an appropriate font size for mobile readability (text-sm to text-base). Ensure it does not conflict with the existing 'Understand Virality Through Mathematics' tagline — replace or consolidate as appropriate to avoid duplication.",
+      "reqIds": [
+        "REQ-30"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-new-what-we-learned-conclusion-summary-screen-accessible-from-the-tab-navigation-in-app-tsx-the-screen-presents-four-key-takeaways-as-visually-distinct-cards-or-list-items-1-percentage-controls-engagement-2-sharing-creates-exponential-growth-3-time-causes-decay-4-the-algorithm-works-on-logic-each-takeaway-should-have-an-emoji-a-bold-headline-and-a-one-sentence-elaboration-include-a-motivational-closing-line-e-g-now-you-know-the-math-behind-every-viral-moment-style-consistently-with-the-existing-gen-z-dark-glassmorphism-aesthetic",
+      "title": "Create a new 'What We Learned' conclusion/summary screen accessible from the tab navigation in App.tsx. The screen presents four key takeaways as visually distinct cards or list items: (1) Percentage controls engagement, (2) Sharing creates exponential growth, (3) Time causes decay, (4) The algorithm works on logic. Each takeaway should have an emoji, a bold headline, and a one-sentence elaboration. Include a motivational closing line (e.g., 'Now you know the math behind every viral moment. 🚀'). Style consistently with the existing Gen Z dark glassmorphism aesthetic.",
+      "reqIds": [
+        "REQ-31"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -173,6 +309,66 @@
     {
       "id": "AR-9",
       "summary": "Add a tagline 'Understand Virality Through Mathematics' beside the logo in the app header",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Add a flashcard game to the app on the topic of viral math (engagement rate, growth, decay) — e.g., quiz-style cards testing math concepts related to Instagram virality",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Add more simple/easy mini-games to the app related to viral math concepts (in addition to the existing flashcard game)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Improve UI: gradient background (dark purple → blue), glowing neon buttons, input icons (❤️ Likes, 💬 Comments, 🔁 Shares, 👁 Views), bigger bold headings, smooth animations on result reveal",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Add graph visualizations: exponential growth curve, decay curve, and bar chart for engagement results",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Add a Viral Prediction Meter (speedometer gauge) showing Low (0–3%), Medium (3–7%), High (7%+) viral chance with color coding (red/yellow/green)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Add a 'Why Reels Go Viral?' real-life example section explaining key factors (watch time, shares, strong hook in first 3 seconds)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Add optional sound effect (pop sound) or glowing effect when Calculate button is clicked",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Add 'Compare Two Reels' feature where user enters data for two reels and app shows which has higher viral probability",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Add a loading animation (spinning icon for 1–2 seconds) before showing calculation results to simulate algorithm processing",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Add a 'What We Learned' conclusion/summary screen covering key takeaways about engagement, growth, decay, and algorithm logic",
       "reqIds": [],
       "status": "pending"
     }

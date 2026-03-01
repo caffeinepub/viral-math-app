@@ -1,39 +1,307 @@
 {
   "kind": "build_request",
-  "title": "Add tagline beside logo in app header",
+  "title": "UI Overhaul, Graph Visualizations, Viral Meter, Compare Reels, Conclusion Screen & More",
   "projectName": "Viral Math App",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-14",
-      "text": "In the app header in App.tsx, display the text 'Understand Virality Through Mathematics' directly beside the logo image (frontend/public/assets/generated/logo.png). The tagline should be placed to the right of the logo, styled to match the existing Gen Z dark aesthetic — use a gradient or light-colored font consistent with the current header typography, appropriate font size for mobile readability (e.g., text-sm to text-base), and ensure the logo + tagline are horizontally aligned and centered or left-aligned within the glassmorphism header.",
+      "id": "REQ-18",
+      "text": "Update the app-wide color scheme to use a dark purple → electric blue gradient background, neon pink and electric blue accent colors, and white text throughout. Replace any existing warm-tone or mixed-palette colors with this cohesive neon palette. Apply the gradient background to the main app shell in App.tsx and ensure all components (calculators, games, info pages) inherit or complement this palette consistently.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "Beside the logo write th line \"Understand Virality Through Mathematic\""
+          "Use a gradient background (dark purple → blue)",
+          "Dark background, Neon pink, Electric blue, White text",
+          "Avoid too many random colors"
         ]
       },
       "acceptanceCriteria": [
-        "The text 'Understand Virality Through Mathematics' appears in the app header immediately to the right of the logo image.",
-        "The logo and tagline are horizontally aligned (vertically centered relative to each other).",
-        "The tagline text is styled consistently with the existing dark Gen Z aesthetic (gradient or light-colored font).",
-        "The layout remains clean and readable on mobile screen widths without overflow or wrapping issues.",
-        "The logo retains its current size (80–100px height) and styling — no visible white box background."
+        "App background displays a dark purple → electric blue gradient",
+        "Primary accent color is neon pink and secondary is electric blue",
+        "All body text is white or near-white for high contrast",
+        "No warm-tone orange/magenta remnants remain as primary palette colors",
+        "All existing components visually integrate with the new palette"
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "text": "In the Engagement Calculator (EngagementCalculator.tsx), add inline emoji icons as prefix adornments inside the input fields: 👁 for Views, ❤️ for Likes, 💬 for Comments, and 🔁 for Shares. The icons should be visible inside the input box on the left side, consistent with the existing neon glassmorphism input styling.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Use icons for: ❤️ Likes, 💬 Comments, 🔁 Shares, 👁 Views"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each of the four inputs in the Engagement Calculator displays its corresponding emoji icon as a left-side prefix",
+        "Icons are visible and do not obscure the typed value",
+        "Input styling remains consistent with the existing neon border/glassmorphism design"
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "text": "Upgrade all section and tool headings across the app (in App.tsx, EngagementCalculator.tsx, GrowthSimulator.tsx, DecaySimulator.tsx, and any other component with headings) to use larger font sizes (e.g., text-3xl or text-4xl for primary headings) and bold font weight. Apply gradient text styling (using the existing gradient-text utility class or equivalent) to make headings visually prominent.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Use bigger, bold headings"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Primary tool/section headings are visually larger than before (text-3xl or greater)",
+        "Headings use bold font weight",
+        "Headings render with gradient text color using the app's neon palette"
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "text": "Add smooth entrance animations to result displays across all calculators (EngagementCalculator.tsx, GrowthSimulator.tsx, DecaySimulator.tsx). When a result becomes visible after clicking Calculate/Simulate, the result card should animate in with a scale-in and fade-in transition (e.g., using Tailwind's transition/animate utilities or inline CSS keyframe animation). The animation duration should be 300–500ms.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Add smooth animations when results appear",
+          "Small animation = Big impact"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Result cards in all three calculators animate in with a scale + fade effect on first render",
+        "Animation plays each time a new result is calculated",
+        "Animation does not block or delay result display beyond the animation duration itself"
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "text": "Add a loading animation to all calculator Calculate/Simulate buttons (EngagementCalculator.tsx, GrowthSimulator.tsx, DecaySimulator.tsx). When the button is clicked, disable it and show a spinning icon inside the button for approximately 1 second before revealing the result. This simulates algorithm processing and adds perceived interactivity.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "When calculating: Show a small spinning icon for 1–2 seconds, Then show result.",
+          "Feels like a real algorithm working."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking Calculate/Simulate shows a spinner inside the button for ~1 second",
+        "The button is disabled during the loading state to prevent double-submission",
+        "After ~1 second the spinner disappears and the result is displayed with the entrance animation"
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "text": "Add a glowing pulse effect to all action buttons (Calculate/Simulate) across the app on hover and click. On hover the button should display a neon glow shadow (using the existing glow utility classes). On click/active state, add a brief scale-down bounce (scale 0.95 → 1) micro-animation to reinforce tactile feedback.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Add glowing buttons (Neon style)",
+          "Or glowing effect"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All Calculate/Simulate buttons display a neon glow shadow on hover",
+        "Clicking a button triggers a brief scale bounce animation",
+        "The glowing effect uses the app's neon pink or electric blue palette"
+      ]
+    },
+    {
+      "id": "REQ-24",
+      "text": "After the Engagement Calculator displays its result, render an interactive bar chart below the ResultCard showing the breakdown of Likes, Comments, and Shares as three bars (using a lightweight charting approach with SVG or a React charting library such as Recharts if available, otherwise build a CSS/SVG bar chart). Each bar should be neon-colored and labeled with its value. The chart should only appear when a valid result exists.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Show a Bar chart for engagement",
+          "Graphs make it look professional."
+        ]
+      },
+      "acceptanceCriteria": [
+        "A bar chart appears below the Engagement Calculator result showing Likes, Comments, and Shares bars",
+        "Bars are labeled with their numeric values",
+        "Chart uses neon colors consistent with the app palette",
+        "Chart only renders when a valid engagement result is present"
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "text": "After the Growth Simulator displays its result, render an interactive exponential growth curve chart below the ResultCard. The X-axis represents rounds (0 to the input number of rounds) and the Y-axis represents total reach at each round, computed using the same formula. Use an SVG line chart or similar approach styled with neon colors. The chart should only appear when a valid result exists.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Show 📈 Exponential growth curve",
+          "Graphs make it look professional."
+        ]
+      },
+      "acceptanceCriteria": [
+        "An exponential growth curve appears below the Growth Simulator result",
+        "X-axis shows rounds 0 through N (user input), Y-axis shows total reach at each round",
+        "Curve is rendered in a neon accent color with the glassmorphism card background",
+        "Chart only renders when a valid simulation result is present"
+      ]
+    },
+    {
+      "id": "REQ-26",
+      "text": "After the Decay Simulator displays its result, render an interactive decay curve chart below the ResultCard. The X-axis represents days (0 to the input number of days) and the Y-axis represents remaining views at each day, computed using the decay formula. Style with neon colors consistent with the app palette. The chart should only appear when a valid result exists.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Show 📉 Decay curve",
+          "Graphs make it look professional."
+        ]
+      },
+      "acceptanceCriteria": [
+        "A decay curve appears below the Decay Simulator result",
+        "X-axis shows days 0 through N (user input), Y-axis shows remaining views at each day",
+        "Curve descends from peak views toward zero styled in neon accent color",
+        "Chart only renders when a valid simulation result is present"
+      ]
+    },
+    {
+      "id": "REQ-27",
+      "text": "Add a Viral Prediction Meter to the Engagement Calculator results area (EngagementCalculator.tsx). After a valid engagement rate is calculated, display a speedometer-style gauge below the result card with three colored zones: 🔴 Red (0–3% — Low), 🟡 Yellow (3–7% — Medium), 🟢 Green (7%+ — High Viral Chance). A needle or highlighted arc segment should indicate where the computed engagement rate falls. Display the zone label (e.g., 'High Viral Chance 🟢') as text beneath the gauge. The meter should only appear when a valid result exists.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Add a colored meter: 🔴 0–3% → Low, 🟡 3–7% → Medium, 🟢 7%+ → High Viral Chance",
+          "Make it like a speedometer gauge.",
+          "This makes your app interactive and exciting."
+        ]
+      },
+      "acceptanceCriteria": [
+        "A speedometer/gauge element appears in the Engagement Calculator after a valid result",
+        "Gauge displays three colored zones: red (0–3%), yellow (3–7%), green (7%+)",
+        "A visual indicator (needle or arc fill) shows the computed engagement rate position",
+        "The current zone label (Low / Medium / High Viral Chance) is displayed as text",
+        "Gauge only renders when a valid engagement result is present"
+      ]
+    },
+    {
+      "id": "REQ-28",
+      "text": "Create a new 'Compare Two Reels' screen accessible from the existing tab navigation in App.tsx. The screen allows the user to enter Views, Likes, Comments, and Shares for Reel 1 and Reel 2 in two side-by-side (or stacked on mobile) input panels. On clicking a 'Compare' button, compute the engagement rate for each reel and declare which reel has higher viral probability (or tie if equal). Display each reel's engagement rate and a highlighted winner banner (e.g., '🏆 Reel 1 Wins!'). Show a friendly error if any field is empty or invalid. Style consistently with the existing Gen Z dark glassmorphism aesthetic.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Add a section: 'Compare Two Reels'",
+          "User enters data for Reel 1 and Reel 2",
+          "App tells which one has higher viral probability.",
+          "This makes it unique."
+        ]
+      },
+      "acceptanceCriteria": [
+        "A 'Compare Two Reels' tab/screen is accessible from the main navigation",
+        "Two input panels accept Views, Likes, Comments, and Shares for Reel 1 and Reel 2",
+        "A 'Compare' button triggers computation of engagement rate for both reels",
+        "Results display each reel's engagement rate and a winner banner highlighting the higher one",
+        "Tie case is handled gracefully (e.g., 'It's a Tie! 🤝')",
+        "Validation shows an error message if any field is empty or invalid",
+        "UI uses glassmorphism card style, neon gradients, and Space Grotesk font"
+      ]
+    },
+    {
+      "id": "REQ-29",
+      "text": "Create a new 'Why Reels Go Viral?' informational section/screen accessible from the tab navigation in App.tsx. The section explains key real-life factors that drive virality in short bullet points: (1) High watch time keeps the algorithm promoting the reel, (2) More shares amplify reach exponentially, (3) A strong hook in the first 3 seconds captures attention. Present each point with an icon or emoji, a bold short title, and a one-to-two sentence explanation. Style consistently with the existing Gen Z dark glassmorphism aesthetic.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Add a small section: 'Why Reels Go Viral?'",
+          "High watch time, More shares, Strong hook in first 3 seconds",
+          "This makes your app educational + practical."
+        ]
+      },
+      "acceptanceCriteria": [
+        "A 'Why Reels Go Viral?' screen or section is accessible from the navigation",
+        "At least three factors are displayed: watch time, shares, hook in first 3 seconds",
+        "Each factor has an emoji/icon, bold title, and short explanation",
+        "UI is styled with glassmorphism cards and neon accents"
+      ]
+    },
+    {
+      "id": "REQ-30",
+      "text": "Update the app header tagline in App.tsx from the current text (or any existing tagline) to 'Virality is Mathematics, Not Magic.' Display this tagline prominently below or beside the logo in the header, styled with gradient text using the app's neon palette and an appropriate font size for mobile readability (text-sm to text-base). Ensure it does not conflict with the existing 'Understand Virality Through Mathematics' tagline — replace or consolidate as appropriate to avoid duplication.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Add App Tagline on Top",
+          "'Virality is Mathematics, Not Magic.'",
+          "A strong tagline makes it look professional."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The header displays the tagline 'Virality is Mathematics, Not Magic.'",
+        "Tagline uses gradient text styling consistent with the neon palette",
+        "No duplicate taglines appear in the header",
+        "Tagline is readable on mobile screen widths"
+      ]
+    },
+    {
+      "id": "REQ-31",
+      "text": "Create a new 'What We Learned' conclusion/summary screen accessible from the tab navigation in App.tsx. The screen presents four key takeaways as visually distinct cards or list items: (1) Percentage controls engagement, (2) Sharing creates exponential growth, (3) Time causes decay, (4) The algorithm works on logic. Each takeaway should have an emoji, a bold headline, and a one-sentence elaboration. Include a motivational closing line (e.g., 'Now you know the math behind every viral moment. 🚀'). Style consistently with the existing Gen Z dark glassmorphism aesthetic.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Add Conclusion Screen",
+          "'What We Learned'",
+          "Percentage controls engagement, Sharing creates exponential growth, Time causes decay, Algorithm works on logic",
+          "Teachers love summary sections."
+        ]
+      },
+      "acceptanceCriteria": [
+        "A 'What We Learned' screen is accessible from the tab navigation",
+        "Four takeaway cards are displayed with emoji, bold title, and one-sentence explanation",
+        "A motivational closing line appears at the bottom",
+        "UI uses glassmorphism cards and neon gradient accents consistent with the rest of the app"
       ]
     }
   ],
   "constraints": [
-    "Do not alter the logo size or its existing styling.",
-    "Do not modify any files in frontend/src/hooks/ or frontend/src/components/ui.",
-    "Preserve the existing glassmorphism header background and overall layout structure."
+    "Do not modify files in frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui",
+    "All calculations remain purely client-side — no backend changes required",
+    "Charts must be implemented without external charting dependencies if none are already present; use SVG or CSS-based approaches",
+    "Sound effects (item 5 in user request) are optional and should only be added as a subtle glowing button effect, not an audio file, to avoid browser autoplay restrictions"
   ],
   "nonGoals": [
-    "Changing the logo image itself.",
-    "Modifying any calculator or simulator functionality.",
-    "Redesigning the tab navigation or any other sections of the app."
+    "Adding actual audio/sound files or Web Audio API integration",
+    "Backend persistence of calculator results or comparison data",
+    "User authentication or saving history between sessions",
+    "Real-time data fetching from Instagram or any external API"
   ],
   "imageRequirements": {
     "required": [],
