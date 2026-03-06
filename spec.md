@@ -1,22 +1,37 @@
-# Specification
+# Viral Math App
 
-## Summary
-**Goal:** Overhaul the Viral Math App UI with a cohesive neon palette, interactive graph visualizations, a viral prediction meter, a Compare Two Reels screen, new informational/conclusion screens, and various animation/UX improvements.
+## Current State
+The app has a dark neon Gen Z aesthetic with a sticky header (logo + tagline), a hero section, and three tab groups (Calculators, Learn, Play). It navigates entirely within a single page using tab state. The homepage jumps straight into tab navigation with no dedicated landing/home section. Tab buttons are compact pill-style rows. The design is dark with neon pink/blue/purple accents.
 
-**Planned changes:**
-- Update the app-wide color scheme to a dark purple → electric blue gradient background with neon pink and electric blue accents and white text throughout
-- Add emoji prefix icons (👁 Views, ❤️ Likes, 💬 Comments, 🔁 Shares) inside Engagement Calculator input fields
-- Upgrade all section/tool headings to larger bold sizes with gradient text styling
-- Add scale + fade entrance animations to result cards across all calculators when results appear
-- Add a ~1-second spinner loading state to all Calculate/Simulate buttons before showing results
-- Add neon glow on hover and scale-bounce on click to all action buttons
-- Add a neon bar chart below the Engagement Calculator result showing Likes, Comments, and Shares breakdown
-- Add an exponential growth curve chart below the Growth Simulator result (X: rounds, Y: reach)
-- Add a decay curve chart below the Decay Simulator result (X: days, Y: remaining views)
-- Add a speedometer-style Viral Prediction Meter to the Engagement Calculator results (🔴 0–3% Low, 🟡 3–7% Medium, 🟢 7%+ High Viral Chance)
-- Add a "Compare Two Reels" tab with two input panels for Reel 1 and Reel 2, engagement rate computation, winner banner, and tie handling
-- Add a "Why Reels Go Viral?" informational screen with three key factors (watch time, shares, hook) displayed as glassmorphism cards with emoji icons
-- Update the app header tagline to "Virality is Mathematics, Not Magic." with gradient text styling, replacing any duplicate existing tagline
-- Add a "What We Learned" conclusion screen with four takeaway cards (percentage/engagement, sharing/growth, decay, algorithm logic) and a motivational closing line
+## Requested Changes (Diff)
 
-**User-visible outcome:** Users see a polished neon dark-themed app with animated calculators, interactive charts, a viral meter, a reel comparison tool, educational and conclusion screens, and a new header tagline.
+### Add
+- A dedicated **Home Screen** that appears before the tab navigation. It should show:
+  - The app logo (already in `/assets/image.png`) prominently
+  - App title: "Viral Math App" in large bold font
+  - Tagline: "Learn Math in 60 Seconds!" or similar catchy subtitle
+  - A bright **Start / Play button** that transitions the user into the main content
+  - Mini preview stat cards (e.g., Practice, Leaderboard, Challenge Mode icons) below the CTA
+- A **"home"** state in the app: when `activeTab === "home"`, render the new Home Screen; clicking Start/Play sets the tab to "engagement" (or last visited tab)
+- Large card-style navigation buttons replacing the current compact pill rows — each section card should show the emoji icon, label, and a subtle description, in a grid layout
+- Section grouping labels (🔢 Calculators, 📚 Learn, 🎮 Play) elevated visually with color-coded card rows
+
+### Modify
+- Home page hero: replace current simple text hero with full-screen-feel home card that fills the viewport with logo, title, tagline, and CTA
+- Navigation tabs: upgrade from small pill buttons to larger card-style buttons (min height ~80px on desktop, full-width on mobile) with icon + label + short description, arranged in a 2-col grid per group
+- Font sizes: increase heading sizes across cards (use `text-2xl`/`text-3xl` for card headings, `text-lg` for labels)
+- The header should stay minimal (logo + tagline side by side), no changes needed there
+
+### Remove
+- The current inline "hero" blurb in the main content area (the "✨ instagram reel analytics" badge + "Understand Viral Math" heading + tagline) — this content moves into the new Home Screen
+- The compact flat pill tab rows replaced by the new card-style navigation grid
+
+## Implementation Plan
+1. Add a `"home"` value to the tabs or manage it as a separate state (`showHome: boolean`)
+2. Create a `HomePage` component that renders the full landing view with logo, title, tagline, stat preview cards, and a Start button
+3. Replace compact pill tab navigation with a `NavCardGrid` pattern: render 3 sections (Calculators, Learn, Play), each with a 2-column grid of large cards
+4. Each nav card: rounded-3xl glass-card, ~80px min-height, emoji icon (2xl), label (font-bold text-lg), short description (text-xs text-muted-foreground), colored gradient border on hover/active
+5. Wire Start button → sets `showHome = false`, preserving last selected tab
+6. Apply larger font sizes (text-2xl+ for section headings, text-lg for card labels)
+7. Keep all existing calculator/game/learn page components unchanged — only the navigation shell and home page change
+8. Add `data-ocid` markers on: home CTA button, each nav card, section group labels
