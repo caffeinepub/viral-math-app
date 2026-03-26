@@ -63,7 +63,7 @@ export function WhatWeLearned() {
           🏆 What We Learned
         </h3>
         <p className="text-sm text-muted-foreground mt-2 max-w-xs mx-auto">
-          Key takeaways from your viral math journey.
+          Key takeaways from your likes to logic journey.
         </p>
       </div>
 

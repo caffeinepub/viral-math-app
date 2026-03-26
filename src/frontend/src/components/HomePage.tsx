@@ -85,7 +85,7 @@ export function HomePage({ onStart }: HomePageProps) {
           />
           <img
             src="/assets/image.png"
-            alt="Viral Math App Logo"
+            alt="Likes to Logic Logo"
             className="relative h-32 w-auto object-contain"
             style={{
               filter:
@@ -109,7 +109,7 @@ export function HomePage({ onStart }: HomePageProps) {
             backgroundClip: "text",
           }}
         >
-          Viral Math App
+          Likes to Logic
         </span>
       </motion.h1>
 

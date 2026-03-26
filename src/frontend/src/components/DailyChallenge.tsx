@@ -276,13 +276,13 @@ export function DailyChallenge() {
 
   function handleShare() {
     const text = encodeURIComponent(
-      `I just completed today's Daily Viral Math Challenge! 🔥 Score: ${score}/10 pts\nCan you beat it? → ${window.location.href}`,
+      `I just completed today's Daily Likes to Logic Challenge! 🔥 Score: ${score}/10 pts\nCan you beat it? → ${window.location.href}`,
     );
     window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
   }
 
   function handleCopyShare() {
-    const text = `Daily Viral Math Challenge ✅\nDate: ${todayKey}\nScore: ${score}/10 pts\n🔥 Try it at ${window.location.href}`;
+    const text = `Daily Likes to Logic Challenge ✅\nDate: ${todayKey}\nScore: ${score}/10 pts\n🔥 Try it at ${window.location.href}`;
     navigator.clipboard
       .writeText(text)
       .then(() => {

@@ -375,7 +375,7 @@ export function FlashcardGame() {
         <div className="flex items-center justify-between mb-3">
           <div>
             <h2 className="font-display text-xl font-extrabold gradient-text-purple-pink">
-              Viral Math Quiz 🎮
+              Likes to Logic Quiz 🎮
             </h2>
             <p className="text-xs text-muted-foreground mt-0.5">
               Score:{" "}

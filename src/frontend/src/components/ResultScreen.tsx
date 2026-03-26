@@ -94,13 +94,13 @@ export function ResultScreen({
 
   function handleWhatsAppShare() {
     const text = encodeURIComponent(
-      `I scored ${points} points on Viral Math App! Can you beat me? 🔥 Try it now at ${window.location.href}`,
+      `I scored ${points} points on Likes to Logic! Can you beat me? 🔥 Try it now at ${window.location.href}`,
     );
     window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
   }
 
   function handleCopyForInstagram() {
-    const text = `I scored ${points} points on Viral Math App! 🔥\n${rank.emoji} Rank: ${rank.title}\n✅ ${score}/${total} correct in ${formatTime(timeTakenSeconds)}\n\nCan you beat me? → ${window.location.href}`;
+    const text = `I scored ${points} points on Likes to Logic! 🔥\n${rank.emoji} Rank: ${rank.title}\n✅ ${score}/${total} correct in ${formatTime(timeTakenSeconds)}\n\nCan you beat me? → ${window.location.href}`;
     navigator.clipboard
       .writeText(text)
       .then(() => {

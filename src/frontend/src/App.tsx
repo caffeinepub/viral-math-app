@@ -397,7 +397,7 @@ export default function App() {
           >
             <img
               src="/assets/image.png"
-              alt="Viral Math App"
+              alt="Likes to Logic"
               className="h-20 w-auto object-contain flex-shrink-0"
               style={{
                 filter: "drop-shadow(0 0 14px oklch(0.72 0.30 340 / 0.60))",
@@ -576,7 +576,7 @@ export default function App() {
             />{" "}
             using{" "}
             <a
-              href={`https://caffeine.ai/?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(typeof window !== "undefined" ? window.location.hostname : "viral-math-app")}`}
+              href={`https://caffeine.ai/?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(typeof window !== "undefined" ? window.location.hostname : "likes-to-logic")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="font-bold hover:underline gradient-text-pink-blue"
@@ -585,8 +585,8 @@ export default function App() {
             </a>
           </p>
           <p className="text-xs text-muted-foreground/40 mt-1">
-            © {new Date().getFullYear()} Viral Math — For educational purposes
-            only
+            © {new Date().getFullYear()} Likes to Logic — For educational
+            purposes only
           </p>
         </div>
       </footer>
